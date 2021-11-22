@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+               
+
+
+    <p>今天是
+        <script>
+            var d = new Date();
+            document.write(d.getFullYear() + "年" + d.getMonth() + "月" + d.getDate() + "日");
+        </script>
+    </p>
+
+    <input type="text" id="ipt" oninput="value=value.replace(/[^\d]/g,'')">
+    <script>document.getElementById("ipt").focus();</script>
+    <input type="button" id="btn" value="天后是" />
+
+    <script>
+        document.getElementById("btn").onclick = function () {
+            var l = document.getElementById("ipt").value;
+            var nd = new Date();
+            nd.setDate(nd.getDate() + Number(l));
+            txt.innerHTML = nd.getFullYear() + "年" + nd.getMonth() + "月" + nd.getDate() + "日";
+        }
+    </script>
+
+    <p id="txt"></p>
+
+
+
+</body>
+
+</html>
