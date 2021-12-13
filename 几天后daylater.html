@@ -5,7 +5,8 @@
     <p>今天是
         <script>
             var d = new Date();
-            document.write(d.getFullYear() + "年" + d.getMonth() + "月" + d.getDate() + "日");
+            var month = d.getMonth()+1;
+            document.write(d.getFullYear() + "年" + month + "月" + d.getDate() + "日")
         </script>
     </p>
 
@@ -18,7 +19,8 @@
             var l = document.getElementById("ipt").value;
             var nd = new Date();
             nd.setDate(nd.getDate() + Number(l));
-            txt.innerHTML = nd.getFullYear() + "年" + nd.getMonth() + "月" + nd.getDate() + "日";
+            var month = nd.getMonth()+1
+            txt.innerHTML = nd.getFullYear() + "年" + month + "月" + nd.getDate() + "日";
         }
     </script>
     <p id="txt"></p>
