@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>距离下次生日</title>
+</head>
+
+
+<script type="text/javascript">
+
+    //得到当前时间并写入div
+    function getDate() {
+        //获取当前时间
+        var date = new Date();
+        //格式化为本地时间格式
+        var strNow = date.toLocaleString('chinese', { hour12: false });
+        //获取div
+        var divNow = document.getElementById("now");
+        //将时间写入div
+        divNow.innerHTML = "现在是" + strNow;
+        // Your birthday
+        var birthday = new Date("1888/11/11");
+        //Set current year or the next year if you already had birthday this year
+        birthday.setFullYear(date.getFullYear());
+        if (date > birthday) {
+            birthday.setFullYear(date.getFullYear() + 1);
+        }
+        //下面开始计算时间差
+        var diff = (birthday - date) / 1000;
+        var d = parseInt(diff / 60 / 60 / 24);
+        d = d < 10 ? '0' + d : d;
+        var h = parseInt(diff / 60 / 60 % 24);
+        h = h < 10 ? '0' + h : h;
+        var m = parseInt(diff / 60 % 60);
+        m = m < 10 ? '0' + m : m;
+        var s = parseInt(diff % 60);
+        s = s < 10 ? '0' + s : s;
+        //获取div
+        var divNext = document.getElementById("next");
+        //将时间写入div
+        divNext.innerHTML = "距离下次生日还有" + d + '天' + h + '时' + m + '分' + s + '秒';
+
+    }
+    //使用定时器每秒向div写入当前时间
+    setInterval("getDate()", 1000);
+</script>
+
+<body style="font-size:40px;">
+    <div id="now" >
+    </div>
+    <div id="next">
+    </div>
+</body>
+
+</html>
